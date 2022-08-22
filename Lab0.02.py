@@ -29,3 +29,24 @@ and the food attributes.
 Test your function with your list of pets.
 '''
 
+class Pet():
+    def __init__(self, animal, color, food, noise, name):
+        self.animal = animal
+        self.color = color
+        self.food = food
+        self.noise = noise
+        self.name = name
+
+def pet_info(list_of_pets):
+    for pet in list_of_pets:
+        print(f"{pet.name} eats {pet.food}.")
+
+pet1 = Pet('dog', 'brown', 'kibble', 'woof', 'Buddy')
+pet2 = Pet('cat', 'black', 'salmon', 'meow', 'Lucky')
+pet3 = Pet('fish', 'orange', 'seaweed', 'glub glub', 'Goldie')
+pet4 = Pet('snake', 'white', 'mice', 'hiss', 'Snowy')
+
+PET_LIST = [pet1, pet2, pet3, pet4]
+
+pet_info(PET_LIST)
+
