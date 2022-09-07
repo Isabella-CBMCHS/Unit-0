@@ -129,4 +129,8 @@ print(pet5.is_friend(pet2))
 print(pet6.is_friend(pet1))
 
 # cat and cat
+<<<<<<< HEAD
 print(pet2.is_friend(pet6))
+=======
+print(pet2.is_friend(pet6))
+>>>>>>> 5dd4fdefa1c09d4237602db83fb63870db2138f0
