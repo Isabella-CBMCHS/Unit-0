@@ -14,3 +14,13 @@ and build a function to combine two colors.
     and returns a color that is the sum of the two reds, greens, 
     and blues. Don't forget: the maximum value for R, G, or B is 255.
 '''
+
+class Color():
+    def __init__(self, red, green, blue):
+        self.red = red  
+        self.green = green  
+        self.blue = blue
+
+color1 = Color('230', '11', '40')
+
+print(color1)
