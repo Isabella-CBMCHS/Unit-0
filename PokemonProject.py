@@ -70,7 +70,7 @@ class User:
     def poke_choices(self, poke_list):
         for i in range(3):
             self.print_choices(poke_list)
-            poke_choice = int(input(f"Go on! Select a Pokemon, {self.name}:")) - 1
+            poke_choice = int(input(f"Go on! Select a Pokemon, {self.name}.")) - 1
             self.pokemon.append(poke_list[poke_choice])
             poke_list.remove(poke_list[poke_choice])
             
@@ -86,14 +86,19 @@ class User:
 
 
 class Computer(User):
+    def __init__(self, name):
+        self.name = name
+        self.pokemon = []
+
     def play_turn(self):
         pass
 
+    # randomly selects computer's pokemon
     def set_pokemon(self):
         import random
-        pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
-        r = random.choice(pokemon_list)
-        print(r)
+        pokemon_list = ['poke1', 'poke2', 'poke3', 'poke4', 'poke5', 'poke6', 'poke7', 'poke8', 'poke9']
+        print(random.sample(pokemon_list, 3))
+
 
     def attack(self):
         pass
@@ -221,14 +226,15 @@ pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
 ### SET UP USERS ##
 # user names
 player_name = input("Welcome player, what is your name?")
-computer_name = input("What is the name of your rival?")
+rival_name = input("What is the name of your rival?")
 # instantiate user objects
 player = User(player_name)
-computer = Computer(computer_name)
+rival = Computer(rival_name)
 # player chooses three pokemon
 player.poke_choices(pokemon_list)
 
 print(player.pokemon)
 player.print_choices(pokemon_list)
-
+print(rival.pokemon)
+rival.set_pokemon(pokemon_list)
 
