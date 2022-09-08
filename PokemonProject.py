@@ -86,17 +86,13 @@ class User:
 
 
 class Computer(User):
-    def __init__(self, name):
-        self.name = name
-        self.pokemon = []
-
     def play_turn(self):
         pass
 
     # randomly selects computer's pokemon
     def set_pokemon(self):
         import random
-        pokemon_list = ['poke1', 'poke2', 'poke3', 'poke4', 'poke5', 'poke6', 'poke7', 'poke8', 'poke9']
+        pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
         print(random.sample(pokemon_list, 3))
 
 
@@ -235,6 +231,6 @@ player.poke_choices(pokemon_list)
 
 print(player.pokemon)
 player.print_choices(pokemon_list)
-print(rival.pokemon)
-rival.set_pokemon(pokemon_list)
+
+rival.set_pokemon
 
