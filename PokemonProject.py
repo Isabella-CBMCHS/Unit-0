@@ -76,13 +76,16 @@ class User:
             
                 
     def get_attack_power(self):
-        pass
+        import random
+        # attack power
+        num1 = random.randint(Pokemon.ap, Pokemon.ap - 20)
+        print(num1)
 
     def is_end_game(self):
         pass
 
     def print_attacks(self):
-        pass
+        print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
 
 
 class Computer(User):
@@ -138,11 +141,11 @@ class FireType(Pokemon):
         self.growl()
         # vs water
         if isinstance(other, WaterType):
-            print(f"{self.name}'s attack is LESS effective against {other.type}.")
+            print(f"{self.name}'s attack is NOT VERY EFFECTIVE against {other.type}.")
 
         # vs grass
         if isinstance(other, GrassType):
-            print(f"{self.name}'s attack is MORE effective against {other.type}.")
+            print(f"{self.name}'s attack is SUPER EFFECTIVE against {other.type}.")
 
     def get_attack_power(self):
         pass
@@ -159,11 +162,11 @@ class WaterType(Pokemon):
         self.growl()
         # vs water
         if isinstance(other, GrassType):
-            print(f"{self.name}'s attack is LESS effective against {other.type}.")
+            print(f"{self.name}'s attack is NOT VERY EFFECTIVE against {other.type}.")
 
         # vs grass
         if isinstance(other, FireType):
-            print(f"{self.name}'s attack is MORE effective against {other.type}.")
+            print(f"{self.name}'s attack is SUPER EFFECTIVE against {other.type}.")
 
     def set_attacks(self):
         # set dictionary with "attack name": [power, accuracy]
@@ -188,11 +191,11 @@ class GrassType(Pokemon):
         self.growl()
         # vs water
         if isinstance(other,FireType):
-            print(f"{self.name}'s attack is LESS effective against {other.type}.")
+            print(f"{self.name}'s attack is NOT VERY EFFECTIVE against {other.type}...")
 
         # vs grass
         if isinstance(other, WaterType):
-            print(f"{self.name}'s attack is MORE effective against {other.type}.")
+            print(f"{self.name}'s attack is SUPER EFFECTIVE against {other.type}.")
 
     def set_attacks(self):
         # set dictionary with "attack name": [power, accuracy]
@@ -231,6 +234,12 @@ player.poke_choices(pokemon_list)
 
 print(player.pokemon)
 player.print_choices(pokemon_list)
-
 rival.set_pokemon
 
+# game over? (for you)
+if game_over(player):
+    print(f"All of {player}'s pokemon have fainted. {player} whited out!")
+
+#game over? (for opponent/comptuer)
+if game_over(rival):
+    print(f"{rival} has been defeated. {player} won the battle!")
