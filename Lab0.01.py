@@ -17,10 +17,18 @@ and build a function to combine two colors.
 
 class Color():
     def __init__(self, red, green, blue):
-        self.red = red  
-        self.green = green  
-        self.blue = blue
-
-color1 = Color('230', '11', '40')
+        self.r = red  
+        self.g = green  
+        self.b = blue
+        
+    def add_color(self):
+        sum color1 + color2
+        return sum
+    
+sum = add_color(color1, color2)
+    
+color1 = Color(230, 12, 40)
+color2 = Color(2, 200, 10)
+color3 = Color(0, 40, 140)
 
 print(color1)
