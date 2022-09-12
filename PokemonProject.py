@@ -54,7 +54,12 @@ class User:
         pass
 
     def heal(self):
-        pass
+        x = Pokemon.hp
+        y = 20
+
+        sum = x + y
+
+        print(f"{current_pokemon}'s HP is now {sum}.")
 
     def attack(self, target, attack_name):
         pass
@@ -73,13 +78,6 @@ class User:
             poke_choice = int(input(f"Go on! Select a Pokemon, {self.name}.")) - 1
             self.pokemon.append(poke_list[poke_choice])
             poke_list.remove(poke_list[poke_choice])
-            
-                
-    def get_attack_power(self):
-        import random
-        # attack power
-        num1 = random.randint(Pokemon.ap, Pokemon.ap - 20)
-        print(num1)
 
     def is_end_game(self):
         pass
@@ -96,7 +94,7 @@ class Computer(User):
     def set_pokemon(self):
         import random
         pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
-        print(random.sample(pokemon_list, 3))
+        print(f"{rival_name}'s Pokemon are {rival.set_pokemon}.")
 
 
     def attack(self):
@@ -120,6 +118,24 @@ class Pokemon():
 
     def attack(self, other):
         self.attack_results(other)
+    
+    def get_attack_power(self):
+        import random
+        # attack power
+        num1 = random.randint(Pokemon.ap, Pokemon.ap - 20)
+
+    def take_damage(self):
+        # same method as heal, subtr?
+        pass
+
+    def heal(self):
+        # x = current pkmon?
+        x = Pokemon.hp
+        y = 20
+
+        sum = x + y
+
+        print(f"{current_pokemon}'s HP is now {sum}.")
 
 
 class FireType(Pokemon):
@@ -148,7 +164,10 @@ class FireType(Pokemon):
             print(f"{self.name}'s attack is SUPER EFFECTIVE against {other.type}.")
 
     def get_attack_power(self):
-        pass
+        import random
+
+        num1 = random.randrange(FireType.ap, FireType.ap - 20)
+        print(f"{current_pokemon} did {num1} damage!")
 
 
 class WaterType(Pokemon):
@@ -176,8 +195,11 @@ class WaterType(Pokemon):
                 "Surf": [70, 90]
                  }
 
-        def get_attack_power(self):
-            pass
+    def get_attack_power(self):
+        import random
+
+        num1 = random.randrange(WaterType.ap, WaterType.ap - 20)
+        print(f"{current_pokemon} did {num1} damage!")
 
 
 class GrassType(Pokemon):
@@ -206,7 +228,10 @@ class GrassType(Pokemon):
                  }
     
     def get_attack_power(self):
-        pass
+        import random
+
+        num1 = random.randrange(GrassType.ap, GrassType.ap - 20)
+        print(f"{current_pokemon} did {num1} damage!")
 
 
 # pokemon instances
@@ -234,12 +259,14 @@ player.poke_choices(pokemon_list)
 
 print(player.pokemon)
 player.print_choices(pokemon_list)
-rival.set_pokemon
+rival.set_pokemon(pokemon_list)
 
+'''
 # game over? (for you)
 if game_over(player):
     print(f"All of {player}'s pokemon have fainted. {player} whited out!")
 
-#game over? (for opponent/comptuer)
+# game over? (for opponent/comptuer)
 if game_over(rival):
-    print(f"{rival} has been defeated. {player} won the battle!")
+    print(f"{rival_name} has been defeated. {player} won the battle!")
+'''
