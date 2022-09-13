@@ -126,7 +126,12 @@ class Pokemon():
 
     def take_damage(self):
         # same method as heal, subtr?
-        pass
+        x = Pokemon.get_attack_power
+        #just ^ this/w-o x#
+        y = 
+
+        sum = x + y
+        #add input & need random 
 
     def heal(self):
         # x = current pkmon?
@@ -162,7 +167,7 @@ class FireType(Pokemon):
         # vs grass
         if isinstance(other, GrassType):
             print(f"{self.name}'s attack is SUPER EFFECTIVE against {other.type}.")
-
+ 
     def get_attack_power(self):
         import random
 
