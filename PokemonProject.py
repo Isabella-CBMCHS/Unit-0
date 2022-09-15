@@ -59,13 +59,13 @@ class User:
 
         sum = x + y
 
-        print(f"{current_pokemon}'s HP is now {sum}.")
+        print(f">>>{current_pokemon}'s HP is now {sum}.")
 
     def attack(self, target, attack_name):
         pass
 
     def print_choices(self, poke_list):
-        print(f"{self.name}, welcome to the wonderful world of Pokemon! Please consider the following list: ")
+        print(f">>> {self.name}, welcome to the wonderful world of Pokemon! Please consider the following list: ")
         num = 1
         for poke in poke_list:
             print(f"{num}. {poke.name} - HP: {poke.health} ~ AP: {poke.attack_points}")
@@ -75,7 +75,7 @@ class User:
     def poke_choices(self, poke_list):
         for i in range(3):
             self.print_choices(poke_list)
-            poke_choice = int(input(f"Go on! Select a Pokemon, {self.name}.")) - 1
+            poke_choice = int(input(f">>> Go on! Select a Pokemon, {self.name}.")) - 1
             self.pokemon.append(poke_list[poke_choice])
             poke_list.remove(poke_list[poke_choice])
 
@@ -91,12 +91,21 @@ class Computer(User):
         pass
 
     # randomly selects computer's pokemon
-    def set_pokemon(self):
+    def set_pokemon(self, pokemon_list):
         import random
+        self.pokemon_list = pokemon_list
         pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
-        print(f"{rival_name}'s Pokemon are {rival.set_pokemon}.")
-
-
+        poke1 = FireType("Charmander", 25, 70)
+        poke2 = FireType("Ninetails", 30, 50)
+        poke3 = FireType("Ponyta", 40, 60)
+        poke4 = WaterType("Squirtle", 80, 20)
+        poke5 = WaterType("Psyduck", 70, 40)
+        poke6 = WaterType("Polywag", 50, 50)
+        poke7 = GrassType("Bulbasaur", 60, 40)
+        poke8 = GrassType("Bellsprout", 40, 60)
+        poke9 = GrassType("Oddish", 50, 50)
+        print(f">>> {rival_name}'s Pokemon are {random.choice(pokemon_list)}, {random.choice(pokemon_list)}, and {random.choice(pokemon_list)}.")
+ 
     def attack(self):
         pass
 
@@ -128,7 +137,7 @@ class Pokemon():
         # same method as heal, subtr?
         x = Pokemon.get_attack_power
         #just ^ this/w-o x#
-        y = 
+        y = Pokemon.ap
 
         sum = x + y
         #add input & need random 
@@ -254,8 +263,8 @@ pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
 
 ### SET UP USERS ##
 # user names
-player_name = input("Welcome player, what is your name?")
-rival_name = input("What is the name of your rival?")
+player_name = input(">>> Welcome player, what is your name?")
+rival_name = input(">>> What is the name of your rival?")
 # instantiate user objects
 player = User(player_name)
 rival = Computer(rival_name)
@@ -269,9 +278,9 @@ rival.set_pokemon(pokemon_list)
 '''
 # game over? (for you)
 if game_over(player):
-    print(f"All of {player}'s pokemon have fainted. {player} whited out!")
+    print(f">>> All of {player}'s pokemon have fainted. {player} whited out!")
 
 # game over? (for opponent/comptuer)
 if game_over(rival):
-    print(f"{rival_name} has been defeated. {player} won the battle!")
+    print(f">>> {rival_name} has been defeated. {player} won the battle!")
 '''
