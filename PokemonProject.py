@@ -51,7 +51,8 @@ class User:
         self.current_pokemon = None
 
     def switch(self):
-        pass
+        print(f"{party}: {poke1.name} - {poke1.ap}, {poke1.hp}. {poke2.name} - {poke2.ap}, {poke2.hp}. {poke3.name} - {poke3.ap}, {poke3.hp}.")
+        int(input(f">>> Which Pokemon would you like to switch to?"))
 
     def heal(self):
         x = Pokemon.hp
@@ -79,11 +80,18 @@ class User:
             self.pokemon.append(poke_list[poke_choice])
             poke_list.remove(poke_list[poke_choice])
 
+        '''v  three chosen pokemon'''
+    def party(self):
+        pass
+
     def is_end_game(self):
         pass
 
     def print_attacks(self):
         print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
+
+    def stats(self):
+        print(f"{current_pokemon}: {Pokemon.name} - {Pokemon.ap}, {Pokemon.hp}.")
 
 
 class Computer(User):
@@ -91,20 +99,16 @@ class Computer(User):
         pass
 
     # randomly selects computer's pokemon
-    def set_pokemon(self, pokemon_list):
+    def set_pokemon(self, firetype_list, watertype_list, grasstype_list):
         import random
-        self.pokemon_list = pokemon_list
-        pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
-        poke1 = FireType("Charmander", 25, 70)
-        poke2 = FireType("Ninetails", 30, 50)
-        poke3 = FireType("Ponyta", 40, 60)
-        poke4 = WaterType("Squirtle", 80, 20)
-        poke5 = WaterType("Psyduck", 70, 40)
-        poke6 = WaterType("Polywag", 50, 50)
-        poke7 = GrassType("Bulbasaur", 60, 40)
-        poke8 = GrassType("Bellsprout", 40, 60)
-        poke9 = GrassType("Oddish", 50, 50)
-        print(f">>> {rival_name}'s Pokemon are {random.choice(pokemon_list)}, {random.choice(pokemon_list)}, and {random.choice(pokemon_list)}.")
+        self.firetype_list = firetype_list
+        self.watertype_list = watertype_list
+        self.grasstype_list = grasstype_list
+        firetype_list = [poke1, poke2, poke3]
+        watertype_list = [poke4, poke5, poke6]
+        grasstype_list = [poke7, poke8, poke9]
+
+        print(f">>> {rival_name}'s Pokemon are {random.choice(firetype_list).name}, {random.choice(watertype_list).name}, and {random.choice(grasstype_list).name}.")
  
     def attack(self):
         pass
@@ -260,6 +264,9 @@ poke8 = GrassType("Bellsprout", 40, 60)
 poke9 = GrassType("Oddish", 50, 50)
 
 pokemon_list = [poke1, poke2, poke3, poke4, poke5, poke6, poke7, poke8, poke9]
+firetype_list = [poke1, poke2, poke3]
+watertype_list = [poke4, poke5, poke6]
+grasstype_list = [poke7, poke8, poke9]
 
 ### SET UP USERS ##
 # user names
@@ -273,7 +280,7 @@ player.poke_choices(pokemon_list)
 
 print(player.pokemon)
 player.print_choices(pokemon_list)
-rival.set_pokemon(pokemon_list)
+rival.set_pokemon(firetype_list, watertype_list, grasstype_list)
 
 '''
 # game over? (for you)
