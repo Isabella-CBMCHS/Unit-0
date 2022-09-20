@@ -63,6 +63,10 @@ class User:
         print(f">>>{current_pokemon}'s HP is now {sum}.")
 
     def attack(self, target, attack_name):
+        print(current_pokemon.set_attacks) 
+        # ??? yes current pokemon, how to print attacks? set_attacks = dictionary (correct?)
+
+    def attack_power(self):
         pass
 
     def print_choices(self, poke_list):
@@ -92,6 +96,9 @@ class User:
 
     def stats(self):
         print(f"{current_pokemon}: {Pokemon.name} - {Pokemon.ap}, {Pokemon.hp}.")
+    
+    def current_pokemon(self):
+        pass
 
 
 class Computer(User):
@@ -101,17 +108,10 @@ class Computer(User):
     # randomly selects computer's pokemon
     def set_pokemon(self, firetype_list, watertype_list, grasstype_list):
         import random
-        self.firetype_list = firetype_list
-        self.watertype_list = watertype_list
-        self.grasstype_list = grasstype_list
-        firetype_list = [poke1, poke2, poke3]
-        watertype_list = [poke4, poke5, poke6]
-        grasstype_list = [poke7, poke8, poke9]
-
         print(f">>> {rival_name}'s Pokemon are {random.choice(firetype_list).name}, {random.choice(watertype_list).name}, and {random.choice(grasstype_list).name}.")
  
     def attack(self):
-        pass
+        print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
 
     def switch(self):
         pass
