@@ -52,7 +52,7 @@ class User:
 
     def switch(self):
         print(f"{party}: {poke1.name} - {poke1.ap}, {poke1.hp}. {poke2.name} - {poke2.ap}, {poke2.hp}. {poke3.name} - {poke3.ap}, {poke3.hp}.")
-        int(input(f">>> Which Pokemon would you like to switch to?"))
+        int(input(f">>> Please select a Pokemon to switch to:"))
 
     def heal(self):
         x = Pokemon.hp
@@ -76,7 +76,7 @@ class User:
             print(f"{num}. {poke.name} - HP: {poke.health} ~ AP: {poke.attack_points}")
             num += 1
 
-    # populates player's hand of pokemon
+    # populates player's hand of pokemon (party)
     def poke_choices(self, poke_list):
         for i in range(3):
             self.print_choices(poke_list)
@@ -108,7 +108,7 @@ class Computer(User):
     # randomly selects computer's pokemon
     def set_pokemon(self, firetype_list, watertype_list, grasstype_list):
         import random
-        print(f">>> {rival_name}'s Pokemon are {random.choice(firetype_list).name}, {random.choice(watertype_list).name}, and {random.choice(grasstype_list).name}.")
+        print(f">>> Oh? It seems {rival_name} has chosen {random.choice(firetype_list).name}, {random.choice(watertype_list).name}, and {random.choice(grasstype_list).name}.")
  
     def attack(self):
         print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
@@ -125,6 +125,7 @@ class Pokemon():
         self.type = self.set_type()  
         self.cry = self.set_cry()
         self.attacks = self.set_attacks()
+        self.attack_power = self.get_attack_power
 
     def growl(self):
         print(self.cry)
@@ -281,6 +282,10 @@ player.poke_choices(pokemon_list)
 print(player.pokemon)
 player.print_choices(pokemon_list)
 rival.set_pokemon(firetype_list, watertype_list, grasstype_list)
+
+Pokemon.get_attack_power()
+#testing ^
+
 
 '''
 # game over? (for you)
