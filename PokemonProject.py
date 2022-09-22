@@ -63,10 +63,12 @@ class User:
         print(f">>>{current_pokemon}'s HP is now {sum}.")
 
     def attack(self, target, attack_name):
-        print(current_pokemon.set_attacks) 
-        # ??? yes current pokemon, how to print attacks? set_attacks = dictionary (correct?)
+        pass
+        # ??? input mayb? self = current pkmon, what abt target? input would b attack name (names in dictionary already)
 
     def attack_power(self):
+        # random num b/t pkmon ap and pkmon ap - 20 UNLESS move pp (power points) is lower than ap 
+        # charmander has 70 ap but ember is max 60 pp, so attack power is a random num b/t 60-40 instead of 70-50!!
         pass
 
     def print_choices(self, poke_list):
@@ -86,9 +88,11 @@ class User:
 
         '''v  three chosen pokemon'''
     def party(self):
+        # list? of three pkmon chosen @ beginning - list = partpoke1, partpoke2, etc??? parpoke/partpoke/partypoke 
         pass
 
     def is_end_game(self):
+        # checks to see if all pkmon have fainted for either comp or player
         pass
 
     def print_attacks(self):
@@ -98,11 +102,13 @@ class User:
         print(f"{current_pokemon}: {Pokemon.name} - {Pokemon.ap}, {Pokemon.hp}.")
     
     def current_pokemon(self):
+        # pkmon player is currently using (one of three chosen @ beginning)
         pass
 
 
 class Computer(User):
     def play_turn(self):
+        # attack (2/3), heal (1/6), switch (1/6)
         pass
 
     # randomly selects computer's pokemon
@@ -114,6 +120,7 @@ class Computer(User):
         print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
 
     def switch(self):
+        # current pkmon -> randomly select diff pkmon from party
         pass
 
 
@@ -283,7 +290,7 @@ print(player.pokemon)
 player.print_choices(pokemon_list)
 rival.set_pokemon(firetype_list, watertype_list, grasstype_list)
 
-Pokemon.get_attack_power()
+Pokemon.attack(poke1, poke4)
 #testing ^
 
 
