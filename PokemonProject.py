@@ -63,7 +63,10 @@ class User:
         print(f">>>{current_pokemon}'s HP is now {sum}.")
 
     def attack(self, target, attack_name):
-        pass
+        self.target = Computer.current_pokemon
+        self.attack_name = attack_name
+        int(input(f">>> What attack do you wish to use?"))
+
         # ??? input mayb? self = current pkmon, what abt target? input would b attack name (names in dictionary already)
 
     def attack_power(self):
