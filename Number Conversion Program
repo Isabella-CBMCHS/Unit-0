@@ -1,0 +1,37 @@
+''' 
+class User:
+    def __init__(self, name):
+        self.name = name
+
+    def input_system(self):
+        pass
+
+    def input_value(self):
+        pass
+
+    def output_system(self):
+        pass
+
+user_name = input(">>> What is your name?")
+user = User(user_name)
+
+#might work? trying other method
+'''
+#decimal -> binary using "recursion" (research tht)
+
+def DecimalToBinary(num):
+
+    if num >= 1:
+        DecimalToBinary(num // 2)
+    print(num % 2, end = '')
+
+#"Driver" code -- rsrch
+if __name__ =='__main__':
+
+    #decimal value
+    dec_val = 24
+
+    #calling function
+    DecimalToBinary(dec_val)
+
+

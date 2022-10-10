@@ -49,8 +49,10 @@ class User:
         self.name = name
         self.pokemon = []
         self.current_pokemon = None
+        # ^ what to do w this last one
 
     def switch(self):
+        # change poke1.name/poke2.name etc to partpoke.1/partpoke.2 or partypoke O
         print(f"{party}: {poke1.name} - {poke1.ap}, {poke1.hp}. {poke2.name} - {poke2.ap}, {poke2.hp}. {poke3.name} - {poke3.ap}, {poke3.hp}.")
         int(input(f">>> Please select a Pokemon to switch to:"))
 
@@ -63,12 +65,12 @@ class User:
         print(f">>>{current_pokemon}'s HP is now {sum}.")
 
     def attack(self, target, attack_name):
-        pass
         # ??? input mayb? self = current pkmon, what abt target? input would b attack name (names in dictionary already)
+        pass
 
     def attack_power(self):
         # random num b/t pkmon ap and pkmon ap - 20 UNLESS move pp (power points) is lower than ap 
-        # charmander has 70 ap but ember is max 60 pp, so attack power is a random num b/t 60-40 instead of 70-50!!
+        # EX. charmander has 70 ap but ember is max 60 pp, so attack power is a random num b/t 60-40 instead of 70-50!!
         pass
 
     def print_choices(self, poke_list):
@@ -277,7 +279,7 @@ watertype_list = [poke4, poke5, poke6]
 grasstype_list = [poke7, poke8, poke9]
 
 ### SET UP USERS ##
-# user names
+# user names, no space in front of input!!
 player_name = input(">>> Welcome player, what is your name?")
 rival_name = input(">>> What is the name of your rival?")
 # instantiate user objects
@@ -290,9 +292,10 @@ print(player.pokemon)
 player.print_choices(pokemon_list)
 rival.set_pokemon(firetype_list, watertype_list, grasstype_list)
 
-Pokemon.attack(poke1, poke4)
-#testing ^
+pass
+#testing ^ 
 
+# final stretch! finish noted passes then test -> compile everything togthr down here and we're finished
 
 '''
 # game over? (for you)
