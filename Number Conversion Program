@@ -1,37 +1,51 @@
-''' 
+'''
+#decimal -> binary using "recursion" (research tht)
 class User:
     def __init__(self, name):
         self.name = name
 
-    def input_system(self):
-        pass
+    def DecimalToBinary(self, num):
 
-    def input_value(self):
-        pass
+        if num >= 1:
+            DecimalToBinary(num // 2)
+        print(num % 2, end = '')
 
-    def output_system(self):
-        pass
+    #"Driver" code -- rsrch
+    if __name__ =='__main__':
 
-user_name = input(">>> What is your name?")
-user = User(user_name)
+            #decimal value
+            dec_val = input("Enter your number:")
+            # ^^^ make this an input and it should work!! then add user input 
+            # (name) and print dio w name asking 4 input***
 
-#might work? trying other method
+            #calling function
+            DecimalToBinary(dec_val)
 '''
-#decimal -> binary using "recursion" (research tht)
+#another possible method 2 work better
 
-def DecimalToBinary(num):
+class User:
+    def __init__(self, name):
+        self.name = name
 
-    if num >= 1:
-        DecimalToBinary(num // 2)
-    print(num % 2, end = '')
+    #function 2 convert any base num to decimal
+    def any_base_to_decimal(number, base):
+        #calling built-in function? int(num, base)
+        temp = int(number, base)
 
-#"Driver" code -- rsrch
-if __name__ =='__main__':
+        #printing corresponding decimal num
+        print(temp)
 
-    #decimal value
-    dec_val = 24
+    #Driver's code? -- rsrch
+    if __name__ == '__main__' :
+        hexadecimal_number = input("{user}, Enter your hexadecimal number:")
+        base = 16
+        any_base_to_decimal(hexadecimal_number, base)
 
-    #calling function
-    DecimalToBinary(dec_val)
+    if  __name__ == '__main__' :
+        binary_number = input("{user}, Enter your binary number:")
+        base = 2
+        any_base_to_decimal(binary_number, base)
+        #add/make an input for the base?
 
-
+user_name = input("Enter your name:")
+user = User(user_name)
