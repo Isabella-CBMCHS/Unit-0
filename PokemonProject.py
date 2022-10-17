@@ -53,7 +53,7 @@ class User:
 
     def switch(self):
         # change poke1.name/poke2.name etc to partpoke.1/partpoke.2 or partypoke O
-        print(f"{party}: {poke1.name} - {poke1.ap}, {poke1.hp}. {poke2.name} - {poke2.ap}, {poke2.hp}. {poke3.name} - {poke3.ap}, {poke3.hp}.")
+        print(f"{party_list}: {poke1.name} - {poke1.ap}, {poke1.hp}. {poke2.name} - {poke2.ap}, {poke2.hp}. {poke3.name} - {poke3.ap}, {poke3.hp}.")
         int(input(f">>> Please select a Pokemon to switch to:"))
 
     def heal(self):
@@ -65,13 +65,24 @@ class User:
         print(f">>>{current_pokemon}'s HP is now {sum}.")
 
     def attack(self, target, attack_name):
-        # ??? input mayb? self = current pkmon, what abt target? input would b attack name (names in dictionary already)
-        pass
+        if isinstance(self, WaterType):
+            print(f"{FireType.set_attacks}")
+
+        if isinstance(self, GrassType):
+            print(f"{GrassType.set_attacks}")
+
+        if isinstance(self, FireType):
+            print(f"{FireType.set_attacks}")
+
+        int(input(f">>> What attack do you choose?:"))
 
     def attack_power(self):
+        import random
         # random num b/t pkmon ap and pkmon ap - 20 UNLESS move pp (power points) is lower than ap 
         # EX. charmander has 70 ap but ember is max 60 pp, so attack power is a random num b/t 60-40 instead of 70-50!!
-        pass
+        
+        num1 = random.randint({current_pokemon.ap}, {current_pokemon.ap} - 20)
+        print(f"{current_pokemon} did {num1} damage!")
 
     def print_choices(self, poke_list):
         print(f">>> {self.name}, welcome to the wonderful world of Pokemon! Please consider the following list: ")
@@ -91,11 +102,17 @@ class User:
         '''v  three chosen pokemon'''
     def party(self):
         # list? of three pkmon chosen @ beginning - list = partpoke1, partpoke2, etc??? parpoke/partpoke/partypoke 
-        pass
+        party_list = [{player.print_choices}]
 
     def is_end_game(self):
         # checks to see if all pkmon have fainted for either comp or player
-        pass
+        # game over? (for you)
+        if game_over(player):
+            print(f">>> All of {player}'s pokemon have fainted. {player} whited out!")
+
+        # game over? (for opponent/comptuer)
+        if game_over(rival):
+            print(f">>> {rival_name} has been defeated. {player} won the battle!")
 
     def print_attacks(self):
         print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
@@ -105,13 +122,23 @@ class User:
     
     def current_pokemon(self):
         # pkmon player is currently using (one of three chosen @ beginning)
-        pass
+        int(input(f">>> Which Pokemon do you wish to battle with?"))
+
+    def start_turn(self):
+        #player chooses to switch, attack, or heal
+        int(input(f">>> what would you like to do?"))
 
 
 class Computer(User):
+    from numpy.random import choice
     def play_turn(self):
         # attack (2/3), heal (1/6), switch (1/6)
-        pass
+  
+        ComputerturnList = [Computer.attack, Computer.switch, Computer.heal]
+        CTList = choice(
+        ComputerturnList, 3, p=[0.7, 0.15, 0.15])
+
+        print(ComputerturnList)
 
     # randomly selects computer's pokemon
     def set_pokemon(self, firetype_list, watertype_list, grasstype_list):
@@ -122,8 +149,14 @@ class Computer(User):
         print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
 
     def switch(self):
+        import random
         # current pkmon -> randomly select diff pkmon from party
-        pass
+        current_pokemon = random.choice(cparty_list)
+ 
+        print(">>> {rival_name} has switched to: " + str(current_pokemon)) 
+    
+    def party(self):
+        cparty_list = [{Computer.set_pokemon}]
 
 
 class Pokemon():
@@ -292,17 +325,5 @@ print(player.pokemon)
 player.print_choices(pokemon_list)
 rival.set_pokemon(firetype_list, watertype_list, grasstype_list)
 
-pass
-#testing ^ 
-
-# final stretch! finish noted passes then test -> compile everything togthr down here and we're finished
-
-'''
-# game over? (for you)
-if game_over(player):
-    print(f">>> All of {player}'s pokemon have fainted. {player} whited out!")
-
-# game over? (for opponent/comptuer)
-if game_over(rival):
-    print(f">>> {rival_name} has been defeated. {player} won the battle!")
-'''
+print(player.current_pokemon)
+print(player.start_turn)
