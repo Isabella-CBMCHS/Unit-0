@@ -21,31 +21,74 @@ class User:
             #calling function
             DecimalToBinary(dec_val)
 '''
-#another possible method 2 work better
+'''
+#another possible method 2 work better -- upd: ITS GOING WELL i think
 
 class User:
     def __init__(self, name):
         self.name = name
 
-    #function 2 convert any base num to decimal
-    def any_base_to_decimal(number, base):
-        #calling built-in function? int(num, base)
-        temp = int(number, base)
+person_name = input("Enter your name:")
+person = User(person_name)
 
-        #printing corresponding decimal num
-        print(temp)
+#function 2 convert any base num to decimal
+def any_base_to_decimal(number, base):
+    #calling built-in function? int(num, base)
+    temp = int(number, base)
 
-    #Driver's code? -- rsrch
-    if __name__ == '__main__' :
-        hexadecimal_number = input("{user}, Enter your hexadecimal number:")
-        base = 16
-        any_base_to_decimal(hexadecimal_number, base)
+    #printing corresponding decimal num
+    print(temp)
 
-    if  __name__ == '__main__' :
-        binary_number = input("{user}, Enter your binary number:")
-        base = 2
-        any_base_to_decimal(binary_number, base)
-        #add/make an input for the base?
+#Driver's code? -- rsrch
+if  __name__ == '__main__' :
+    hexadecimal_number = input(f"{person_name}, Enter your hexadecimal number:")
+    base = 16
+    any_base_to_decimal(hexadecimal_number, base)
 
-user_name = input("Enter your name:")
-user = User(user_name)
+if  __name__ == '__main__' :
+    binary_number = input(f"{person_name}, Enter your binary number:")
+    base = 2
+    any_base_to_decimal(binary_number, base)
+#add/make an input for the base? + what to convert to (ex. 'what is your base,' then based on that input :
+#'enter your (blank a.k.a. the INPUT/BASE) num,' then 'what do you want to convert this num to' then it gives 
+#you the num after the last input)
+
+#^^after this need to add another input(?) asking if user wants 2 convert another num or stop (quit)
+# and make sure that you can convert to/from *ANY* base num sys
+
+#FIXED THE {user_name} ISSUE!!! ***for future ref, use F STRING (ex. input(f"{user_name} blah blah blah"))
+'''
+
+class User:
+    def __init__(self, name):
+        self.name = name
+
+person_name = input("Enter your name:")
+person = User(person_name)
+
+def from_base_10(num):
+    converted_number = ''
+
+    while num != 0:
+        num = int(num) // end_base
+
+number = input("Enter the number you would like to convert:")
+start_base = int(input("Enter the base of your number:"))
+end_base = int(input("Enter the base you would like your number to end in:"))
+
+print(from_base_10(number))
+
+'''
+
+- accepts user input (CHECK)
+
+- get user's name and customize dialogue to the user (CHECK)
+
+- number systems: convert to and from ANY base number system
+
+- user inputs a base, a value, and what base num sys to convert to
+
+- user has the choice to convert another number or quit
+
+
+'''
