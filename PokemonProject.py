@@ -53,7 +53,14 @@ class User:
         self.current_pokemon = None
         # ^ what to do w this last one
 
+<<<<<<< HEAD
     
+=======
+    def switch(self):
+        # change poke1.name/poke2.name etc to partpoke.1/partpoke.2 or partypoke O
+        print(f"{party_list}: {poke1.name} - {poke1.ap}, {poke1.hp}. {poke2.name} - {poke2.ap}, {poke2.hp}. {poke3.name} - {poke3.ap}, {poke3.hp}.")
+        int(input(f">>> Please select a Pokemon to switch to:"))
+>>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
 
     def heal(self):
         x = Pokemon.hp
@@ -63,6 +70,7 @@ class User:
 
         print(f">>>{current_pokemon}'s HP is now {sum}.")
 
+<<<<<<< HEAD
     def attack(self):
         print(f"{player.name} uses {player.current_pokemon.name} to attack {rival.name}'s {rival.current_pokemon.name}")
         # if isinstance(self, WaterType):
@@ -75,6 +83,19 @@ class User:
         #     print(f"{FireType.set_attacks}")
 
         # int(input(f">>> What attack do you choose?:"))
+=======
+    def attack(self, target, attack_name):
+        if isinstance(self, WaterType):
+            print(f"{FireType.set_attacks}")
+
+        if isinstance(self, GrassType):
+            print(f"{GrassType.set_attacks}")
+
+        if isinstance(self, FireType):
+            print(f"{FireType.set_attacks}")
+
+        int(input(f">>> What attack do you choose?:"))
+>>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
 
     def attack_power(self):
         import random
@@ -132,8 +153,15 @@ class User:
 
     def stats(self):
         print(f"{current_pokemon}: {Pokemon.name} - {Pokemon.ap}, {Pokemon.hp}.")
+<<<<<<< HEAD
 
         
+=======
+    
+    def current_pokemon(self):
+        # pkmon player is currently using (one of three chosen @ beginning)
+        int(input(f">>> Which Pokemon do you wish to battle with?"))
+>>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
 
     def start_turn(self):
         #player chooses to switch, attack, or heal
@@ -165,11 +193,18 @@ class Computer(User):
         print(FireType.set_attacks, WaterType.set_attacks, GrassType.set_attacks)
 
     def switch(self):
+        import random
         # current pkmon -> randomly select diff pkmon from party
+<<<<<<< HEAD
         self.current_pokemon = random.choice(self.pokemon)
         print(f"{self.name} chooses {self.current_pokemon.name} as their attacking pokemon.")
  
         # print(">>> {rival_name} has switched to: " + str(current_pokemon)) 
+=======
+        current_pokemon = random.choice(cparty_list)
+ 
+        print(">>> {rival_name} has switched to: " + str(current_pokemon)) 
+>>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
     
     def party(self):
         cparty_list = [{Computer.set_pokemon}]
@@ -341,6 +376,7 @@ player.poke_choices(pokemon_list)
 # computer randomly chooses 3 pokemon
 rival.set_pokemon(firetype_list, watertype_list, grasstype_list)
 
+<<<<<<< HEAD
 # player chooses active pokemon
 player.switch()
 # ai chooses active pokemon
@@ -356,3 +392,7 @@ while running:
         player.switch()
     elif user_choice == 'attack':
         player.attack()
+=======
+print(player.current_pokemon)
+print(player.start_turn)
+>>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353

@@ -1,33 +1,31 @@
-'''
-#decimal -> binary using "recursion" (research tht)
+LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 class User:
     def __init__(self, name):
         self.name = name
 
-    def DecimalToBinary(self, num):
+def from_base_10(num):
+    converted_number = ''
 
-        if num >= 1:
-            DecimalToBinary(num // 2)
-        print(num % 2, end = '')
+    while num != 0:
+        converted_number += str(int(num) % end_base)
 
-    #"Driver" code -- rsrch
-    if __name__ =='__main__':
+        num = int(num) // end_base 
 
-            #decimal value
-            dec_val = input("Enter your number:")
-            # ^^^ make this an input and it should work!! then add user input 
-            # (name) and print dio w name asking 4 input***
-
+<<<<<<< HEAD
             #calling function
             DecimalToBinary(dec_val)
 '''
 '''
 #another possible method 2 work better -- upd: ITS GOING WELL i think
+=======
+    return converted_number[::-1]
+>>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
 
-class User:
-    def __init__(self, name):
-        self.name = name
+person_name = input("Enter your name:")
+person = User(person_name)
 
+<<<<<<< HEAD
 person_name = input("Enter your name:")
 person = User(person_name)
 
@@ -92,3 +90,32 @@ print(from_base_10(number))
 
 
 '''
+=======
+num = int(input(f"Welcome, {person_name}. Enter the number you would like to convert:"))
+start_base = int(input(f"Enter the base this number is in, {person_name}:"))
+end_base = int(input(f"Enter the base you would like to convert the number to, {person_name}:"))
+
+res = from_base_10(num)
+print("Your number conversion is: {}".format(res))
+
+while True:
+    # main program
+    while True:
+        answer = str(input('Run again? (y/n): '))
+        if answer in ('y', 'n'):
+            break
+        print("invalid input.")
+    if answer == 'y':
+        person_name = input("Enter your name:")
+        person = User(person_name)
+
+        num = int(input(f"Welcome, {person_name}. Enter the number you would like to convert:"))
+        start_base = int(input(f"Enter the base this number is in, {person_name}:"))
+        end_base = int(input(f"Enter the base you would like to convert the number to, {person_name}:"))
+
+        res = from_base_10(num)
+        print("Your number conversion is: {}".format(res))
+    else:
+        print("Goodbye!")
+        break
+>>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
