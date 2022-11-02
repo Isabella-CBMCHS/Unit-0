@@ -1,62 +1,3 @@
-LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-class User:
-    def __init__(self, name):
-        self.name = name
-
-def from_base_10(num):
-    converted_number = ''
-
-    while num != 0:
-        converted_number += str(int(num) % end_base)
-
-        num = int(num) // end_base 
-
-<<<<<<< HEAD
-            #calling function
-            DecimalToBinary(dec_val)
-'''
-'''
-#another possible method 2 work better -- upd: ITS GOING WELL i think
-=======
-    return converted_number[::-1]
->>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
-
-person_name = input("Enter your name:")
-person = User(person_name)
-
-<<<<<<< HEAD
-person_name = input("Enter your name:")
-person = User(person_name)
-
-#function 2 convert any base num to decimal
-def any_base_to_decimal(number, base):
-    #calling built-in function? int(num, base)
-    temp = int(number, base)
-
-    #printing corresponding decimal num
-    print(temp)
-
-#Driver's code? -- rsrch
-if  __name__ == '__main__' :
-    hexadecimal_number = input(f"{person_name}, Enter your hexadecimal number:")
-    base = 16
-    any_base_to_decimal(hexadecimal_number, base)
-
-if  __name__ == '__main__' :
-    binary_number = input(f"{person_name}, Enter your binary number:")
-    base = 2
-    any_base_to_decimal(binary_number, base)
-#add/make an input for the base? + what to convert to (ex. 'what is your base,' then based on that input :
-#'enter your (blank a.k.a. the INPUT/BASE) num,' then 'what do you want to convert this num to' then it gives 
-#you the num after the last input)
-
-#^^after this need to add another input(?) asking if user wants 2 convert another num or stop (quit)
-# and make sure that you can convert to/from *ANY* base num sys
-
-#FIXED THE {user_name} ISSUE!!! ***for future ref, use F STRING (ex. input(f"{user_name} blah blah blah"))
-'''
-
 class User:
     def __init__(self, name):
         self.name = name
@@ -70,27 +11,6 @@ def from_base_10(num):
     while num != 0:
         num = int(num) // end_base
 
-number = input("Enter the number you would like to convert:")
-start_base = int(input("Enter the base of your number:"))
-end_base = int(input("Enter the base you would like your number to end in:"))
-
-print(from_base_10(number))
-
-'''
-
-- accepts user input (CHECK)
-
-- get user's name and customize dialogue to the user (CHECK)
-
-- number systems: convert to and from ANY base number system
-
-- user inputs a base, a value, and what base num sys to convert to
-
-- user has the choice to convert another number or quit
-
-
-'''
-=======
 num = int(input(f"Welcome, {person_name}. Enter the number you would like to convert:"))
 start_base = int(input(f"Enter the base this number is in, {person_name}:"))
 end_base = int(input(f"Enter the base you would like to convert the number to, {person_name}:"))
@@ -118,4 +38,3 @@ while True:
     else:
         print("Goodbye!")
         break
->>>>>>> 619bd76c89af3c4bbb752457e8bb915fbfc99353
