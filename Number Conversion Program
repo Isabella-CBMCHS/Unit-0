@@ -1,3 +1,5 @@
+LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 class User:
     def __init__(self, name):
         self.name = name
@@ -5,18 +7,130 @@ class User:
 person_name = input("Enter your name:")
 person = User(person_name)
 
-def from_base_10(num):
-    converted_number = ''
+def bin_to_decimal(binary):
+     
+    binary1 = binary
+    user_choice, i, n = 0, 0, 0
+    while(binary != 0):
+        dec = binary % 10
+        user_choice = user_choice + dec * pow(2, i)
+        binary = binary//10
+        i += 1
+    print(user_choice)
 
-    while num != 0:
-        num = int(num) // end_base
+def decimal_to_bin(number: int):
+    ans = ""
+    if ( number == 0 ):
+        return 0
+    while ( number ):
+        ans += str(number&1)
+        number = number >> 1
+     
+    ans = ans[::-1]
+ 
+    return ans
+ 
+def main():
+    number = 60
+    print(f"The binary of the number {number} is {decimal_to_bin(number)}")
+ 
+# driver code
+if __name__ == "__main__":
+    main()
 
-num = int(input(f"Welcome, {person_name}. Enter the number you would like to convert:"))
-start_base = int(input(f"Enter the base this number is in, {person_name}:"))
-end_base = int(input(f"Enter the base you would like to convert the number to, {person_name}:"))
+def decimal_to_hex(decimal):
+    if(decimal <= 0):
+        return ''
+    remainder = decimal % 16
+    return decimal_to_hex(decimal//16) + conversion_table[remainder]
+ 
+# hexadecimal conversion table
+conversion_table = {0: '0', 1: '1', 2: '2', 3: '3',
+                    4: '4', 5: '5', 6: '6', 7: '7',
+                    8: '8', 9: '9', 10: 'A', 11: 'B',
+                    12: 'C', 13: 'D', 14: 'E', 15: 'F'}
 
-res = from_base_10(num)
-print("Your number conversion is: {}".format(res))
+def hex_to_decimal():
+    h = input('Enter hex : ')
+    d = int(h, base=16)
+    print('Decimal :', d)
+
+def hex_to_bin(user_choice: str, num_digits: int = 8) -> str:
+    """
+    Converts a hexadecimal value into a string representation
+    of the corresponding binary value
+    Args:
+        hex_number: str hexadecimal value
+        num_digits: integer value for length of binary value.
+                    defaults to 8
+    Returns:
+        string representation of a binary number 0-padded
+        to a minimum length of <num_digits>
+    """
+    return str(bin(int(user_choice, 16)))[2:].zfill(num_digits)
+
+def bin_to_hex(n):
+    bnum = int(n)
+    temp = 0
+    mul = 1
+      
+    # counter to check group of 4
+    count = 1
+      
+    # char array to store hexadecimal number
+    user_choice = ['0'] * 100
+      
+    # counter for hexadecimal number array
+    i = 0
+    while bnum != 0:
+        rem = bnum % 10
+        temp = temp + (rem*mul)
+          
+        # check if group of 4 completed
+        if count % 4 == 0:
+            
+            # check if temp < 10
+            if temp < 10:
+                user_choice[i] = chr(temp+48)
+            else:
+                user_choice[i] = chr(temp+55)
+            mul = 1
+            temp = 0
+            count = 1
+            i = i+1
+              
+        # group of 4 is not completed
+        else:
+            mul = mul*2
+            count = count+1
+        bnum = int(bnum/10)
+          
+    # check if at end the group of 4 is not
+    # completed
+    if count != 1:
+        user_choice[i] = chr(temp+48)
+          
+    # check at end the group of 4 is completed
+    if count == 1:
+        i = i-1
+          
+    # printing hexadecimal number
+    # array in reverse order
+    print("\n Hexadecimal equivalent of {}:  ".format(n), end="")
+    while i >= 0:
+        print(end=user_choice[i])
+        i = i-1
+
+user_choice = input(f"Welcome, {person_name}. Enter the number you would like to convert:")
+num = int(input(f"Enter the base this number is in, {person_name}:"))
+if num == '16':
+    hex_to_bin() or hex_to_decimal()
+elif num == '10':
+    decimal_to_bin() or decimal_to_hex()
+else: num == '2'
+bin_to_decimal() or bin_to_hex()
+
+res = print("Your number conversion is: {}".format)
 
 while True:
     # main program
@@ -29,12 +143,16 @@ while True:
         person_name = input("Enter your name:")
         person = User(person_name)
 
-        num = int(input(f"Welcome, {person_name}. Enter the number you would like to convert:"))
-        start_base = int(input(f"Enter the base this number is in, {person_name}:"))
-        end_base = int(input(f"Enter the base you would like to convert the number to, {person_name}:"))
+        user_choice = input(f"Welcome, {person_name}. Enter the number you would like to convert:")
+        num = int(input(f"Enter the base this number is in, {person_name}:"))
+        if num == '16':
+            hex_to_bin() or hex_to_dec()
+        elif num == '10':
+            decimal_to_bin() or decimal_to_hex()
+        else: num == '2'
+        bin_to_decimal() or bin_to_hex()
 
-        res = from_base_10(num)
-        print("Your number conversion is: {}".format(res))
+        res = print("Your number conversion is: {}".format)
     else:
         print("Goodbye!")
         break
